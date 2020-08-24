@@ -5,7 +5,7 @@ header('Content-type: application/json');
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "projectswe";
+$dbname = "ieeecs";
 
 $signInStatus = new stdClass(); // init json response
 
@@ -22,25 +22,16 @@ if (!$startConn) {
     } else {
         $signInStatus-> EmptyField = 'No';
         $pass = $_POST['PASSWORD'];
-        $query = "SELECT * FROM rented WHERE email ='".$_POST['EMAIL']."' AND pass = SHA1('$pass')";
+        $query = "SELECT * FROM members WHERE email ='".$_POST['EMAIL']."' AND pass = SHA1('$pass')";
         $result = $startConn->query($query);
         if($row = $result-> fetch_assoc()) {
-                $signInStatus-> ID = $row['IDrented'];
-                $signInStatus-> TYPE = $row['TYPE'];
-        } else {
-            $query = "SELECT * FROM users WHERE email ='".$_POST['EMAIL']."' AND pass = SHA1('$pass')";
-            $result = $startConn->query($query);
-            if($row = $result-> fetch_assoc()) {
-                $signInStatus-> ID = $row['IDuser'];
-                $signInStatus-> TYPE = $row['TYPE'];
-            } else {
-                $signInStatus-> error = 'incorrect pass';
-            }
-        }
-
+                $signInStatus-> ID = $row['ID'];
+        } 
+        
     }
 
 echo json_encode($signInStatus);
 
 mysqli_close($startConn);
 
+?>
