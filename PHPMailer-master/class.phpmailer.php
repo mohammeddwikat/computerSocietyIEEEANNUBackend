@@ -76,7 +76,7 @@ class PHPMailer
      * The From name of the message.
      * @var string
      */
-    public $FromName = 'The Traveller Company';
+    public $FromName = 'Computer Society ANNU';
 
     /**
      * The Sender email (Return-Path) of the message.

@@ -73,14 +73,14 @@ class PHPMailer
      *
      * @var string
      */
-    public $From = 'The Traveller Company';
+    public $From = 'Computer Society ANNU';
 
     /**
      * The From name of the message.
      *
      * @var string
      */
-    public $FromName = 'The Traveller Company';
+    public $FromName = 'Computer Society ANNU';
 
     /**
      * The envelope sender of the message.
